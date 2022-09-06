@@ -1,0 +1,7 @@
+<div [ngClass]="{odd : index % 2 === 0}">
+    <h4>{{fan.name}}</h4>
+    <p>Edad: {{fan.age}}</p>
+    <p>Pais: {{fan.country}}</p>
+    <button (click)="changeTeam()">Cambiar de equipo</button>
+    <button (click)="deleteFan()">Borrar fan</button>
+</div>

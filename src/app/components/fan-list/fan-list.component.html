@@ -1,0 +1,24 @@
+<h1>Fan Database</h1>
+<input type="text" [(ngModel)]="fanName" placeholder="Name">
+<input type="number" [(ngModel)]="fanAge" placeholder="Age">
+<input type="text" [(ngModel)]="fanCountry" placeholder="Country">
+<select name="team" [(ngModel)]="fanTeam">
+    <option value="barcelona">FC Barcelona</option>
+    <option value="madrid">R Madrid</option>
+</select>
+<button (click)="addFan()">Añadir fan</button>
+
+<section class="box">
+    <div class="team-box">
+        <h3>FC Barcelona</h3>
+        <app-fan-card *ngFor="let fan of barcelonaFans; let i = index" [ngClass]="{odd : i % 2 === 0}" [fan]="fan" [fanIndex]="i" (fanDeleted)="deleteFan($event, 'barcelona')">
+        </app-fan-card>
+    </div>
+
+    <div class="team-box">
+        <h3>Real Madrid</h3>
+        <app-fan-card *ngFor="let fan of madridFans; let i = index" [ngClass]="{odd : i % 2 === 0}" [fan]="fan" [fanIndex]="i" (fanDeleted)="deleteFan($event, 'madrid')">
+        </app-fan-card>
+    </div>
+
+</section>
