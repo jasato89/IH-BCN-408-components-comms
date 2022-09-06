@@ -7,17 +7,28 @@
     <option value="madrid">R Madrid</option>
 </select>
 <button (click)="addFan()">Añadir fan</button>
+<button (click)="addRandomFan()">Añadir fan Aleatorio</button>
 
 <section class="box">
     <div class="team-box">
         <h3>FC Barcelona</h3>
-        <app-fan-card *ngFor="let fan of barcelonaFans; let i = index" [ngClass]="{odd : i % 2 === 0}" [fan]="fan" [fanIndex]="i" (fanDeleted)="deleteFan($event, 'barcelona')">
+        <app-fan-card *ngFor="let fan of barcelonaFans; let i = index" 
+        [ngClass]="{odd : i % 2 === 0}" 
+        [fan]="fan" 
+        [fanIndex]="i" 
+        (fanDeleted)="deleteFan($event, 'barcelona')"
+        (fanChanged)="changeTeam($event, 'barcelona')">
         </app-fan-card>
     </div>
 
     <div class="team-box">
         <h3>Real Madrid</h3>
-        <app-fan-card *ngFor="let fan of madridFans; let i = index" [ngClass]="{odd : i % 2 === 0}" [fan]="fan" [fanIndex]="i" (fanDeleted)="deleteFan($event, 'madrid')">
+        <app-fan-card *ngFor="let fan of madridFans; let i = index" 
+        [ngClass]="{odd : i % 2 === 0}" 
+        [fan]="fan" 
+        [fanIndex]="i" 
+        (fanDeleted)="deleteFan($event, 'madrid')"
+        (fanChanged)="changeTeam($event, 'madrid')">
         </app-fan-card>
     </div>
 

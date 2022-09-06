@@ -11,6 +11,9 @@ export class FanCardComponent implements OnInit {
   @Output()
   fanDeleted = new EventEmitter<number>();
 
+  @Output()
+  fanChanged = new EventEmitter<number>();
+
   @Input()
   fan: Fan;
   @Input("fanIndex")
@@ -28,6 +31,7 @@ export class FanCardComponent implements OnInit {
   }
 
   changeTeam() {
+    this.fanChanged.emit(this.index);
     
 
   }
